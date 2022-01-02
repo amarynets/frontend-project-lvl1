@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import { showWelcomeMsg, askUserName, welcomeUser } from '../src/cli.js';
+import { showMsg, askUserName, welcomeUser } from '../src/cli.js';
 
-showWelcomeMsg();
+showMsg('Welkome to the Brain Games!');
 const userName = askUserName();
 welcomeUser(userName);
