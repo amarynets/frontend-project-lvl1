@@ -1,8 +1,11 @@
 import readlineSync from 'readline-sync';
 
-const greating = () => {
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}`);
+export const showWelcomeMsg = (msg = 'Welkome to the Brain Games!') => {
+  console.log(msg);
 };
 
-export default greating;
+export const askUserName = () => readlineSync.question('May I have your name? ');
+
+export const welcomeUser = (user) => {
+  console.log(`Hello, ${user}!`);
+};
