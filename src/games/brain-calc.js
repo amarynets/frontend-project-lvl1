@@ -2,7 +2,7 @@ import engine from '../index.js';
 
 const generateNumber = (maxNumber) => Math.floor(Math.random() * maxNumber);
 
-const generateOperation = (operations) => operations[generateNumber(operations.length)];
+const generateOperation = (operators) => operators[generateNumber(operators.length)];
 
 const rule = 'What is the result of the expression?';
 
