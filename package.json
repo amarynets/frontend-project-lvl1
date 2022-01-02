@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/amarynets/frontend-project-lvl1#readme",
   "dependencies": {
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "readline-sync": "^1.4.10"
   }
 }
