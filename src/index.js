@@ -20,4 +20,6 @@ const engine = (rules, raund) => {
   return console.log(`Congratulation, ${playerName}!`);
 };
 
-export default engine;
+const generateNumber = (maxNumber) => Math.floor(Math.random() * maxNumber);
+
+export { engine, generateNumber };

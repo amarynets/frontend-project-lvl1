@@ -1,6 +1,4 @@
-import engine from '../index.js';
-
-const generateNumber = (maxNumber) => Math.floor(Math.random() * maxNumber);
+import { engine, generateNumber } from '../index.js';
 
 const generateOperation = (operators) => operators[generateNumber(operators.length)];
 
