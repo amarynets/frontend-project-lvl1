@@ -13,12 +13,9 @@ const generateQuestionSet = () => {
   const progressionStep = generateNumber(maxProgressionStep);
   const progressionMaxElement = progressionStart + (progressionStep * progressionLength);
   const progression = [];
-  
   for (let i = progressionStart; i < progressionMaxElement; i += progressionStep) {
     progression.push(i);
   }
-  //console.log(progressionStart, progressionMaxElement, progressionStep);
-  //console.log(progressionLength, progression);
   const indexToReplace = generateNumber(progressionLength);
   const answer = progression[indexToReplace];
   progression[indexToReplace] = '..';
