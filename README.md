@@ -3,6 +3,14 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/amarynets/frontend-project-lvl1)
 [![ESLint](https://github.com/amarynets/frontend-project-lvl1/actions/workflows/main.yml/badge.svg)](https://github.com/amarynets/frontend-project-lvl1/actions/workflows/main.yml)
 
+### Instalation
+```
+$ git clone git@github.com:amarynets/frontend-project-lvl1.git
+$ cd frontend-project-lvl1/
+$ make install
+$ npm link
+```
+
 ### Brain even
 [![asciicast](https://asciinema.org/a/jC8psPKbfW8RqHWmbtQ7UUSVK.svg)](https://asciinema.org/a/jC8psPKbfW8RqHWmbtQ7UUSVK)
 
