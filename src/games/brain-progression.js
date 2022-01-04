@@ -17,7 +17,7 @@ const generateQuestionSet = () => {
   for (let i = progressionStart; i < progressionMaxElement; i += progressionStep) {
     progression.push(i);
   }
-  const indexToReplace = generateNumber(progressionLength);
+  const indexToReplace = generateNumber(0, progressionLength);
   const answer = progression[indexToReplace];
   progression[indexToReplace] = '..';
   return [progression.join(' '), String(answer)];
