@@ -1,16 +1,17 @@
-import { engine, generateNumber, generateNumberInRange } from '../index.js';
+import { engine, numberOfLevels } from '../index.js';
+import { generateNumber, generateLevels } from '../utils.js';
+
+const minProgressionLength = 5;
+const maxProgressionLength = 10;
+const maxProgressionStep = 9;
+const maxProgressionStart = 100;
 
 const rule = 'What number is missing in the progression?';
 
 const generateQuestionSet = () => {
-  const minProgressionLength = 5;
-  const maxProgressionLength = 10;
-  const maxProgressionStep = 9;
-  const maxProgressionStart = 100;
-
-  const progressionStart = generateNumber(maxProgressionStart);
-  const progressionLength = generateNumberInRange(minProgressionLength, maxProgressionLength);
-  const progressionStep = generateNumberInRange(1, maxProgressionStep);
+  const progressionStart = generateNumber(0, maxProgressionStart);
+  const progressionLength = generateNumber(minProgressionLength, maxProgressionLength);
+  const progressionStep = generateNumber(1, maxProgressionStep);
   const progressionMaxElement = progressionStart + (progressionStep * progressionLength);
   const progression = [];
   for (let i = progressionStart; i < progressionMaxElement; i += progressionStep) {
@@ -23,7 +24,8 @@ const generateQuestionSet = () => {
 };
 
 const play = () => {
-  engine(rule, generateQuestionSet);
+  const levels = generateLevels(numberOfLevels, generateQuestionSet);
+  engine(rule, levels);
 };
 
 export default play;

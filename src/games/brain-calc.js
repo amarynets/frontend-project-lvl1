@@ -1,15 +1,15 @@
-import { engine, generateNumber } from '../index.js';
+import { engine, numberOfLevels } from '../index.js';
+import { generateNumber, generateLevels } from '../utils.js';
 
-const generateOperation = (operators) => operators[generateNumber(operators.length)];
+const maxNumber = 42;
+const operators = '+-*';
 
 const rule = 'What is the result of the expression?';
 
 const generateQuestionSet = () => {
-  const maxNumber = 42;
-  const operators = '+-*';
-  const firstNumber = generateNumber(maxNumber);
-  const secondNumber = generateNumber(maxNumber);
-  const operator = generateOperation(operators);
+  const firstNumber = generateNumber(0, maxNumber);
+  const secondNumber = generateNumber(0, maxNumber);
+  const operator = operators[generateNumber(0, operators.length - 1)];
   let correctAnswer = NaN;
   switch (operator) {
     case '+':
@@ -28,7 +28,8 @@ const generateQuestionSet = () => {
 };
 
 const play = () => {
-  engine(rule, generateQuestionSet);
+  const levels = generateLevels(numberOfLevels, generateQuestionSet);
+  engine(rule, levels);
 };
 
 export default play;

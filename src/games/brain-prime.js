@@ -1,4 +1,7 @@
-import { engine, generateNumber } from '../index.js';
+import { engine, numberOfLevels } from '../index.js';
+import { generateNumber, generateLevels } from '../utils.js';
+
+const maxNumber = 42;
 
 const isPrime = (num) => {
   if (num === 0) {
@@ -18,14 +21,14 @@ const isPrime = (num) => {
 const rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const generateQuestionSet = () => {
-  const maxNumber = 42;
   const number = generateNumber(maxNumber);
   const answer = isPrime(number) ? 'yes' : 'no';
   return [`${number}`, answer];
 };
 
 const play = () => {
-  engine(rule, generateQuestionSet);
+  const levels = generateLevels(numberOfLevels, generateQuestionSet);
+  engine(rule, levels);
 };
 
 export default play;
