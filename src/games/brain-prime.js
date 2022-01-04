@@ -1,7 +1,7 @@
 import { engine, numberOfLevels } from '../index.js';
 import { generateNumber, generateLevels } from '../utils.js';
 
-const maxNumber = 5;
+const maxNumber = 42;
 
 const isPrime = (num) => {
   if (num === 0) {
@@ -19,7 +19,6 @@ const isPrime = (num) => {
 };
 
 const rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-console.log(isPrime(4), Math.floor(4 / 2) + 1, Math.ceil(4 / 2) + 1);
 const generateQuestionSet = () => {
   const number = generateNumber(0, maxNumber);
   const answer = isPrime(number) ? 'yes' : 'no';
