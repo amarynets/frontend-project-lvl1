@@ -21,7 +21,7 @@ const isPrime = (num) => {
 const rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const generateQuestionSet = () => {
-  const number = generateNumber(maxNumber);
+  const number = generateNumber(0, maxNumber);
   const answer = isPrime(number) ? 'yes' : 'no';
   return [`${number}`, answer];
 };
