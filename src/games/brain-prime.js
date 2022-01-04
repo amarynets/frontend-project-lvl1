@@ -1,8 +1,11 @@
 import { engine, generateNumber } from '../index.js';
 
 const isPrime = (num) => {
-  if (num < 1) {
+  if (num === 0) {
     return false;
+  }
+  if (num === 1) {
+    return true;
   }
   for (let i = 2; i < num / 2; i += 1) {
     if (num % i === 0) {
