@@ -10,7 +10,7 @@ const generateQuestionSet = () => {
 
   const progressionStart = generateNumber(maxProgressionStart);
   const progressionLength = generateNumberInRange(minProgressionLength, maxProgressionLength);
-  const progressionStep = generateNumber(maxProgressionStep);
+  const progressionStep = generateNumberInRange(1, maxProgressionStep);
   const progressionMaxElement = progressionStart + (progressionStep * progressionLength);
   const progression = [];
   for (let i = progressionStart; i < progressionMaxElement; i += progressionStep) {
