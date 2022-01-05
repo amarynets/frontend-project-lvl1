@@ -1,7 +1,8 @@
 import { engine, numberOfLevels } from '../index.js';
-import { generateNumber, generateLevels } from '../utils.js';
+import { generateRandomNumber } from '../utils.js';
 
 const maxNumber = 42;
+const rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (num) => {
   if (num === 0) {
@@ -18,16 +19,21 @@ const isPrime = (num) => {
   return true;
 };
 
-const rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 const generateQuestionSet = () => {
-  const number = generateNumber(0, maxNumber);
+  const number = generateRandomNumber(0, maxNumber);
   const answer = isPrime(number) ? 'yes' : 'no';
   return [`${number}`, answer];
 };
 
-const play = () => {
+export const generateLevels = (numOfLevels, generator) => {
+  const levels = [];
+  for (let i = 0; i < numOfLevels; i += 1) {
+    levels.push(generator());
+  }
+  return levels;
+};
+
+export default () => {
   const levels = generateLevels(numberOfLevels, generateQuestionSet);
   engine(rule, levels);
 };
-
-export default play;

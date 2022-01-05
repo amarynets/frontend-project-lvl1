@@ -1,35 +1,41 @@
 import { engine, numberOfLevels } from '../index.js';
-import { generateNumber, generateLevels } from '../utils.js';
+import { generateRandomNumber } from '../utils.js';
 
 const maxNumber = 42;
-const operators = '+-*';
-
+const operators = ['+', '-', '*'];
 const rule = 'What is the result of the expression?';
 
-const generateQuestionSet = () => {
-  const firstNumber = generateNumber(0, maxNumber);
-  const secondNumber = generateNumber(0, maxNumber);
-  const operator = operators[generateNumber(0, operators.length - 1)];
-  let correctAnswer = NaN;
+const calculateExpression = (operator, firstNumber, secondNumber) => {
   switch (operator) {
     case '+':
-      correctAnswer = firstNumber + secondNumber;
-      break;
+      return firstNumber + secondNumber;
     case '-':
-      correctAnswer = firstNumber - secondNumber;
-      break;
+      return firstNumber - secondNumber;
     case '*':
-      correctAnswer = firstNumber * secondNumber;
-      break;
+      return firstNumber * secondNumber;
     default:
-      console.log(`Unexpected error. Operator ${operator} does not match with none of '+-*'`);
+      return `Unexpected error. Operator ${operator} does not match with none of ${operators}`;
   }
+}
+
+const generateQuestionSet = () => {
+  const firstNumber = generateRandomNumber(0, maxNumber);
+  const secondNumber = generateRandomNumber(0, maxNumber);
+  
+  const operator = operators[generateRandomNumber(0, operators.length - 1)];
+  const correctAnswer = calculateExpression(operator, firstNumber, secondNumber);
   return [`${firstNumber} ${operator} ${secondNumber}`, String(correctAnswer)];
 };
 
-const play = () => {
+export const generateLevels = (numOfLevels, generator) => {
+  const levels = [];
+  for (let i = 0; i < numOfLevels; i += 1) {
+    levels.push(generator());
+  }
+  return levels;
+};
+
+export default () => {
   const levels = generateLevels(numberOfLevels, generateQuestionSet);
   engine(rule, levels);
 };
-
-export default play;

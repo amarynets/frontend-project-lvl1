@@ -1,7 +1,8 @@
 import { engine, numberOfLevels } from '../index.js';
-import { generateNumber, generateLevels } from '../utils.js';
+import { generateRandomNumber } from '../utils.js';
 
-const maxNumber = 20;
+const maxNumber = 42;
+const rule = 'Find the greatest common divisor of given numbers.';
 
 const gcd = (num1, num2) => {
   if (num2 === 0) {
@@ -10,18 +11,22 @@ const gcd = (num1, num2) => {
   return gcd(num2, num1 % num2);
 };
 
-const rule = 'Find the greatest common divisor of given numbers.';
-
 const generateQuestionSet = () => {
-  const num1 = generateNumber(0, maxNumber);
-  const num2 = generateNumber(0, maxNumber);
+  const num1 = generateRandomNumber(0, maxNumber);
+  const num2 = generateRandomNumber(0, maxNumber);
   const answer = gcd(num1, num2);
   return [`${num1} ${num2}`, String(answer)];
 };
 
-const play = () => {
+export const generateLevels = (numOfLevels, generator) => {
+  const levels = [];
+  for (let i = 0; i < numOfLevels; i += 1) {
+    levels.push(generator());
+  }
+  return levels;
+};
+
+export default () => {
   const levels = generateLevels(numberOfLevels, generateQuestionSet);
   engine(rule, levels);
 };
-
-export default play;
