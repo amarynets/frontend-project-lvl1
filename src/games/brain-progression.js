@@ -9,14 +9,14 @@ const rule = 'What number is missing in the progression?';
 
 const generateQuestionSet = () => {
   const progressionStart = generateRandomNumber(0, maxProgressionStart);
-  const progressionLength = ggenerateRandomNumber(minProgressionLength, maxProgressionLength);
+  const progressionLength = generateRandomNumber(minProgressionLength, maxProgressionLength);
   const progressionStep = generateRandomNumber(1, maxProgressionStep);
   const progressionMaxElement = progressionStart + (progressionStep * progressionLength);
   const progression = [];
   for (let i = progressionStart; i < progressionMaxElement; i += progressionStep) {
     progression.push(i);
   }
-  const indexToReplace = generateNumber(0, progressionLength - 1);
+  const indexToReplace = generateRandomNumber(0, progressionLength - 1);
   const answer = progression[indexToReplace];
   progression[indexToReplace] = '..';
   return [progression.join(' '), String(answer)];

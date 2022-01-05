@@ -16,12 +16,11 @@ const calculateExpression = (operator, firstNumber, secondNumber) => {
     default:
       return `Unexpected error. Operator ${operator} does not match with none of ${operators}`;
   }
-}
+};
 
 const generateQuestionSet = () => {
   const firstNumber = generateRandomNumber(0, maxNumber);
   const secondNumber = generateRandomNumber(0, maxNumber);
-  
   const operator = operators[generateRandomNumber(0, operators.length - 1)];
   const correctAnswer = calculateExpression(operator, firstNumber, secondNumber);
   return [`${firstNumber} ${operator} ${secondNumber}`, String(correctAnswer)];
