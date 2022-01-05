@@ -8,7 +8,7 @@ const isPrime = (num) => {
     return false;
   }
   if (num === 1) {
-    return true;
+    return false;
   }
   for (let i = 2; i <= Math.floor(Math.sqrt(num)); i += 1) {
     if (num % i === 0) {
