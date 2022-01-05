@@ -4,10 +4,7 @@ import { generateRandomNumber } from '../utils.js';
 const rule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (num) => {
-  if (num === 0) {
-    return false;
-  }
-  if (num === 1) {
+  if (num === 0 || num === 1) {
     return false;
   }
   for (let i = 2; i <= Math.floor(Math.sqrt(num)); i += 1) {
