@@ -22,15 +22,10 @@ const generateQuestionSet = () => {
   return [progression.join(' '), String(answer)];
 };
 
-export const generateLevels = (numOfLevels, generator) => {
-  const levels = [];
-  for (let i = 0; i < numOfLevels; i += 1) {
-    levels.push(generator());
-  }
-  return levels;
-};
-
 export default () => {
-  const levels = generateLevels(numberOfLevels, generateQuestionSet);
+  const levels = [];
+  for (let i = 0; i < numberOfLevels; i += 1) {
+    levels.push(generateQuestionSet());
+  }
   engine(rule, levels);
 };
